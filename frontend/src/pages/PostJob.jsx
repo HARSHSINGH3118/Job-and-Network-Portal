@@ -1,3 +1,4 @@
+// ✅ Updated PostJob.jsx
 import React, { useState } from "react";
 import { postJob } from "../services/api";
 import { useNavigate } from "react-router-dom";
@@ -28,41 +29,41 @@ export default function PostJob() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center text-white">
-      <div className="w-full max-w-md p-6">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center text-gray-900">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md border border-gray-200">
         <h2 className="text-2xl font-bold mb-6 text-center">Post a Job</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Job Title"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="bg-white border border-gray-300 rounded-md p-2 w-full mb-4"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             placeholder="Job Description"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="bg-white border border-gray-300 rounded-md p-2 w-full mb-4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
             type="text"
             placeholder="Skills (comma separated)"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="bg-white border border-gray-300 rounded-md p-2 w-full mb-4"
             value={skills}
             onChange={(e) => setSkills(e.target.value)}
           />
           <input
             type="number"
             placeholder="Budget"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="bg-white border border-gray-300 rounded-md p-2 w-full mb-4"
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
           />
           <input
             type="text"
             placeholder="Location"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="bg-white border border-gray-300 rounded-md p-2 w-full mb-4"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />

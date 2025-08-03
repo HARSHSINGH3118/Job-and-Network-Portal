@@ -1,3 +1,4 @@
+// ✅ Updated Jobs.jsx
 import React, { useEffect, useState } from "react";
 import { fetchJobs, applyToJob } from "../services/api";
 import toast from "react-hot-toast";
@@ -36,7 +37,7 @@ export default function Jobs() {
   const currentJobs = jobs.slice(startIndex, startIndex + jobsPerPage);
 
   return (
-    <div className="min-h-screen bg-black p-6 text-white">
+    <div className="min-h-screen bg-gray-100 p-6 text-gray-900">
       <h2 className="text-3xl font-bold mb-6 text-center">Explore Jobs</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentJobs.map((job) => (
@@ -53,7 +54,7 @@ export default function Jobs() {
         <button
           onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-600 text-white rounded disabled:opacity-40"
+          className="px-4 py-2 bg-gray-300 text-gray-800 rounded disabled:opacity-40"
         >
           Prev
         </button>
@@ -61,10 +62,10 @@ export default function Jobs() {
           <button
             key={index}
             onClick={() => setCurrentPage(index + 1)}
-            className={`px-3 py-1 rounded ${
+            className={`px-3 py-1 rounded font-medium transition-all duration-150 ${
               currentPage === index + 1
                 ? "bg-blue-600 text-white"
-                : "bg-gray-700 text-gray-300"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
             {index + 1}
@@ -73,7 +74,7 @@ export default function Jobs() {
         <button
           onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-600 text-white rounded disabled:opacity-40"
+          className="px-4 py-2 bg-gray-300 text-gray-800 rounded disabled:opacity-40"
         >
           Next
         </button>
