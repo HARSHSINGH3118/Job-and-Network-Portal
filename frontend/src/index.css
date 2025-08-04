@@ -1,29 +1,7 @@
 @import "tailwindcss";
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-slide {
-  animation: fadeSlide 0.8s ease-out both;
-}
-
-@keyframes pulseGlow {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 20px 4px rgba(59, 130, 246, 0.6);
-  }
-}
-
-.pulse-on-hover:hover {
-  animation: pulseGlow 1.2s infinite;
+/* Force white background and black text globally */
+html,
+body,
+#root {
+  @apply bg-white text-black min-h-screen;
 }
