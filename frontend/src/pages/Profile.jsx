@@ -24,23 +24,20 @@ export default function Profile() {
   }, [user]);
 
   return (
-    <div className=" bg-white text-black p-6">
+    <div className=" text-black p-6">
       <div className="max-w-2xl mx-auto">
         {/* Profile header */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold flex items-center gap-2">
-            <span role="img" aria-label="profile">
-              👤
-            </span>
+          <h2 className="text-3xl font-bold flex items-center gap-2 text-yellow-800">
             Your Profile
           </h2>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+          <button className="bg-yellow-300 text-yello-800 px-4 py-2 rounded">
             Edit Profile
           </button>
         </div>
 
         {/* User details card */}
-        <div className="bg-gray-800 p-6 rounded-lg mb-6 space-y-2">
+        <div className="bg-white p-6 text-yellow-800 rounded-lg mb-6 space-y-2">
           <p>
             <strong>Name:</strong> {user?.name}
           </p>
@@ -60,8 +57,8 @@ export default function Profile() {
         </div>
 
         {/* Jobs You Posted */}
-        <h3 className="text-xl font-bold mt-6 mb-2 text-red-300">
-          📌 Jobs You Posted
+        <h3 className="text-xl font-bold mt-6 mb-2 text-yellow-800">
+          Jobs You Posted
         </h3>
         {myJobs.length === 0 ? (
           <p className="text-gray-400">No jobs posted yet.</p>
@@ -74,8 +71,8 @@ export default function Profile() {
         )}
 
         {/* Jobs You Applied To */}
-        <h3 className="text-xl font-bold mt-8 mb-2 text-pink-300">
-          📥 Jobs You Applied To
+        <h3 className="text-xl font-bold mt-8 mb-2 text-yellow-800">
+          Jobs You Applied To
         </h3>
         {appliedJobs.length === 0 ? (
           <p className="text-gray-400 italic">No applications yet</p>

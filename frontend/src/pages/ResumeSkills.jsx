@@ -56,7 +56,7 @@ export default function ResumeSkillExtractor() {
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start">
       {/* Left: PDF Preview (only works this session) */}
-      <div className="w-full lg:w-1/2 bg-gray-900 rounded-lg p-4">
+      <div className="w-full lg:w-1/2 bg-gradient-to-br from-white via-yellow-50 to-yellow-100rounded-lg p-4 border border-yellow-500 shadow-lg">
         {previewUrl ? (
           <iframe
             src={previewUrl}
@@ -71,7 +71,7 @@ export default function ResumeSkillExtractor() {
       </div>
 
       {/* Right: Extractor */}
-      <div className="w-full lg:w-1/2 bg-gray-900 rounded-lg p-6 space-y-4">
+      <div className="w-full lg:w-1/2 bg-gradient-to-br from-white via-yellow-50 to-yellow-100rounded-lg  border border-yellow-500 shadow-lg rounded-lg p-6 space-y-4">
         <div className="flex gap-4">
           <input
             id="fileInput"
@@ -82,13 +82,13 @@ export default function ResumeSkillExtractor() {
           />
           <label
             htmlFor="fileInput"
-            className="bg-gray-700 px-4 py-2 rounded cursor-pointer hover:bg-gray-600"
+            className="bg-yellow-300 text-yellow-800 px-4 py-2 rounded cursor-pointer"
           >
             {file ? file.name : "Choose PDF"}
           </label>
           <button
             onClick={handleUpload}
-            className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700"
+            className="bg-yellow-400 hover:bg-yellow-800 px-4 py-2 rounded"
           >
             Extract Skills
           </button>
@@ -96,7 +96,7 @@ export default function ResumeSkillExtractor() {
 
         {localSkills.length > 0 && (
           <div>
-            <p className="font-semibold text-green-400">Extracted Skills:</p>
+            <p className="font-semibold text-yellow-800">Extracted Skills:</p>
             <ul className="list-disc list-inside space-y-1">
               {localSkills.map((skill, i) => (
                 <li key={i}>{skill}</li>

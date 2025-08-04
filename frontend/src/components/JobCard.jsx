@@ -1,11 +1,9 @@
 import React from "react";
 import { useSkills } from "../contexts/SkillContext";
 
-// Calculate match score based on extracted skills
 const getMatchScore = (jobSkills, userSkills) => {
   if (!userSkills?.length || !jobSkills?.length) return 0;
 
-  // Normalize casing
   const normalizedUserSkills = userSkills.map((s) => s.toLowerCase());
   const normalizedJobSkills = jobSkills.map((s) => s.toLowerCase());
 
@@ -20,31 +18,34 @@ export default function JobCard({ job, onApply }) {
   const matchScore = getMatchScore(job.skills, extractedSkills);
 
   return (
-    <div className="bg-white-800 rounded-xl p-4 border-3 border-black-900">
-      <h3 className="text-xl font-bold">{job.title}</h3>
-      <p className="text-l text-gray-700">
+    <div className="bg-white/80 backdrop-blur-lg border border-yellow-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-200 p-5">
+      <h3 className="text-xl font-semibold text-yellow-800 mb-1">
+        {job.title}
+      </h3>
+      <p className="text-sm text-gray-600 mb-1">
         By {job.createdBy?.name || "Unknown"}
       </p>
-      <p className="mt-2">{job.description}</p>
-      <p className="mt-1 text-sm text-gray-700">
+      <p className="text-gray-800 mb-2">{job.description}</p>
+      <p className="text-sm text-gray-600 mb-3">
         Budget: ₹{job.budget} | Location: {job.location || "Not specified"}
       </p>
 
-      <div className="mt-4 flex flex-wrap justify-between items-center">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
         <div className="flex flex-wrap gap-2">
           {job.skills.map((skill, i) => (
             <span
               key={i}
-              className="px-3 py-1 bg-yellow-200 text-black-800 text-l rounded-full"
+              className="px-3 py-1 bg-yellow-300 text-yellow-800 text-xs font-medium rounded-full"
             >
               {skill}
             </span>
           ))}
         </div>
+
         {onApply && (
           <button
             onClick={() => onApply(job._id)}
-            className="px-4 py-1 bg-green-200 hover:bg-green-300 text-black text-l rounded-full ml-2 mt-2"
+            className="px-4 py-1 bg-yellow-400 hover:bg-yellow-800 text-white text-sm font-semibold rounded-full transition duration-200 shadow"
           >
             Apply
           </button>
@@ -52,7 +53,9 @@ export default function JobCard({ job, onApply }) {
       </div>
 
       {onApply && (
-        <p className="text-l text-red-400 mt-3">Match Score: {matchScore}%</p>
+        <p className="text-sm font-medium text-yellow-700">
+          Match Score: {matchScore}%
+        </p>
       )}
     </div>
   );

@@ -34,26 +34,23 @@ export default function Jobs() {
   const currentJobs = jobs.slice(startIndex, startIndex + jobsPerPage);
 
   return (
-    <div className=" bg-white p-6 text-black">
-      <h2 className="text-3xl font-bold mb-6 text-center">Explore Jobs</h2>
+    <div className=" text-black py-10 px-6">
+      <h2 className="text-4xl font-extrabold text-center text-yellow-700 mb-10">
+        Explore Jobs
+      </h2>
 
-      {/* Grid layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentJobs.map((job) => (
-          <JobCard
-            key={job._id}
-            job={job}
-            onApply={() => handleApply(job._id)}
-          />
+          <JobCard key={job._id} job={job} onApply={handleApply} />
         ))}
       </div>
 
-      {/* Pagination controls */}
-      <div className="flex justify-center items-center mt-8 gap-2">
+      {/* Pagination */}
+      <div className="flex justify-center items-center mt-12 gap-3">
         <button
           onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-600 text-white rounded disabled:opacity-40"
+          className="px-4 py-2 bg-gray-400 text-white rounded disabled:opacity-40"
         >
           Prev
         </button>
@@ -62,10 +59,10 @@ export default function Jobs() {
           <button
             key={index}
             onClick={() => setCurrentPage(index + 1)}
-            className={`px-3 py-1 rounded ${
+            className={`px-3 py-1 rounded text-sm font-medium ${
               currentPage === index + 1
-                ? "bg-yellow-300 text-black"
-                : "bg-gray-700 text-gray-300"
+                ? "bg-yellow-400 text-white"
+                : "bg-white text-yellow-700 border border-yellow-400"
             }`}
           >
             {index + 1}
@@ -75,7 +72,7 @@ export default function Jobs() {
         <button
           onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-600 text-white rounded disabled:opacity-40"
+          className="px-4 py-2 bg-gray-400 text-white rounded disabled:opacity-40"
         >
           Next
         </button>

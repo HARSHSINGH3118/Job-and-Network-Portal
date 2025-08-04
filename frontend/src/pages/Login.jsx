@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import API from "../api/axios";
 
@@ -24,36 +24,51 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-white text-black">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-gray-900 p-6 rounded shadow-md w-full max-w-md"
-      >
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full mb-4 p-2 border rounded bg-black text-white border-gray-600"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="w-full mb-4 p-2 border rounded bg-black text-white border-gray-600"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Login
-        </button>
-      </form>
+    <div className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-[#fdfcfb] to-[#e2d1c3] px-4">
+      <div className="w-full max-w-md bg-white/30 backdrop-blur-md border border-white/40 shadow-2xl rounded-2xl p-8">
+        <h2 className="text-3xl font-bold text-black text-center mb-6">
+          Login to Your Account
+        </h2>
+
+        {error && (
+          <p className="text-red-600 text-sm text-center mb-4">{error}</p>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <button
+            type="submit"
+            className="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 rounded-md transition duration-200"
+          >
+            Login
+          </button>
+        </form>
+
+        <p className="text-center text-sm text-gray-700 mt-6">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="text-yellow-600 font-semibold hover:underline"
+          >
+            Register here
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

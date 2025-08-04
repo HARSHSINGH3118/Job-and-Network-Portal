@@ -28,47 +28,49 @@ export default function PostJob() {
   };
 
   return (
-    <div className=" bg-white flex items-center justify-center text-black">
-      <div className="w-full max-w-md p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Post a Job</h2>
-        <form onSubmit={handleSubmit}>
+    <div className=" flex items-center justify-center text-black px-4">
+      <div className="w-full max-w-xl bg-white border border-gray-200 shadow-md rounded-xl p-8">
+        <h2 className="text-2xl font-bold mb-6 text-center text-black">
+          Post a Job
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             placeholder="Job Title"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             placeholder="Job Description"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <input
             type="text"
             placeholder="Skills (comma separated)"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
             value={skills}
             onChange={(e) => setSkills(e.target.value)}
           />
           <input
             type="number"
             placeholder="Budget"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
           />
           <input
             type="text"
             placeholder="Location"
-            className="bg-black text-white border border-gray-700 rounded-md p-2 w-full mb-4"
+            className="w-full p-3 rounded-md bg-white border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full"
+            className="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 rounded-md transition duration-200"
           >
             Submit
           </button>
